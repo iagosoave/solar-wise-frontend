@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Energia Solar</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Link para o arquivo de estilos -->
+  <link rel="stylesheet" href="style-dashboard.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Barra lateral verde -->
+      <div class="col-lg-3 bg-success text-white d-flex flex-column align-items-center py-4" id="sidebar">
+        <img src="https://via.placeholder.com/100" alt="Foto de Perfil" class="rounded-circle mb-3">
+        <h4>João da Silva</h4>
+
+        <!-- Links para o gráfico e calculadora -->
+        <ul class="nav flex-column mt-5 w-100 text-center">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="graficoLink">Gráfico de Energia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="calculadoraLink">Calculadora de Energia</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Conteúdo principal -->
+      <div class="col-lg-9 p-4 bg-white" id="content">
+        <div id="graficoContent">
+          <h5 class="card-title">Produção de Energia (Últimos 7 dias)</h5>
+          <canvas id="energiaGeradaChart"></canvas>
+        </div>
+
+        <div id="calculadoraContent" class="d-none">
+          <h5 class="card-title">Calculadora de Energia Solar</h5>
+          <form id="calculadoraForm">
+            <div class="mb-3">
+              <label for="energiaGerada" class="form-label">Energia Gerada (kWh por dia):</label>
+              <input type="number" class="form-control" id="energiaGerada" placeholder="Ex: 50">
+            </div>
+            <div class="mb-3">
+              <label for="dias" class="form-label">Número de Dias:</label>
+              <input type="number" class="form-control" id="dias" placeholder="Ex: 7">
+            </div>
+            <button type="button" class="btn btn-success" id="calcularBtn">Calcular Economia</button>
+          </form>
+          <div class="mt-3">
+            <p><strong>Economia estimada:</strong> <span id="resultadoEconomia">R$ 0,00</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link para o arquivo de scripts -->
+  <script src="script-dash.js"></script>
+</body>
+</html>
